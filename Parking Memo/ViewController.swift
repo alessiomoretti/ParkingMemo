@@ -58,18 +58,18 @@ class ViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDeleg
         // setting title of the view
         self.title = "Parking Memo"
         self.navigationController?.navigationBar.barTintColor = UIColor(hex: 0xD83E0C)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
 
         
         // passing control to enable function (when app is active it is enabled by default)
-        NSNotificationCenter.defaultCenter().addObserver(self,
+        NotificationCenter.default.addObserver(self,
                                                          selector: #selector(ViewController.applicationBecameActive(_:)),
-                                                         name: UIApplicationDidBecomeActiveNotification,
+                                                         name: NSNotification.Name.UIApplicationDidBecomeActive,
                                                          object: nil)
         
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         // initializating the location manager
@@ -82,20 +82,20 @@ class ViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDeleg
         // presetting segmented control -> parking retrieval mode
         retrievePosition()
         // hiding the button for position storage
-        storageBtn.hidden = true
+        storageBtn.isHidden = true
         // showing the dev info button
-        devBtn.hidden = false
+        devBtn.isHidden = false
 
     }
     
     /* if segmented control changed, then changed the app behaviour */
-    @IBAction func behaviourChanged(sender: UISegmentedControl) {
+    @IBAction func behaviourChanged(_ sender: UISegmentedControl) {
         switch applicationBehaviour.selectedSegmentIndex
         {
         case 0:
             // parking retrieving mode enabled
-            storageBtn.hidden   = true
-            devBtn.hidden = false
+            storageBtn.isHidden   = true
+            devBtn.isHidden = false
             
             // deactivating location manager
             locationManager.stopUpdatingLocation()
@@ -104,8 +104,8 @@ class ViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDeleg
             break
         case 1:
             // parking storing position mode enabled
-            storageBtn.hidden   = false
-            devBtn.hidden = true
+            storageBtn.isHidden   = false
+            devBtn.isHidden = true
             
             // resetting user address
             self.userAddress = nil
@@ -114,7 +114,7 @@ class ViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDeleg
             let description_string = "aggiornamento posizione..."
             
             // visualizing description
-            controlDescription.textAlignment = NSTextAlignment.Center
+            controlDescription.textAlignment = NSTextAlignment.center
             controlDescription.text = description_string as String
             
             // removing all annotations from mapview 
@@ -133,12 +133,12 @@ class ViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDeleg
     }
     
     /* storing position on user interaction */
-    @IBAction func storePosition(sender: UIButton) {
+    @IBAction func storePosition(_ sender: UIButton) {
         // retrieving datetime
-        let timestamp = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .MediumStyle, timeStyle: .ShortStyle)
+        let timestamp = DateFormatter.localizedString(from: Date(), dateStyle: .medium, timeStyle: .short)
 
         // user application defaults - storing the position
-        let defaults = NSUserDefaults.standardUserDefaults()
+        let defaults = UserDefaults.standard
         defaults.setValue(self.userLatitude ,   forKey: userLocationKey.latKey)
         defaults.setValue(self.userLongitude,   forKey: userLocationKey.lngKey)
         defaults.setValue(self.userPrecision,   forKey: userLocationKey.pcsKey)
@@ -151,10 +151,10 @@ class ViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDeleg
     func retrievePosition() {
         
         // user application defaults - retrieving the position
-        let defaults = NSUserDefaults.standardUserDefaults()
+        let defaults = UserDefaults.standard
         let ulat: Double!
         let ulng: Double!
-        if let user_latitude:  Double = defaults.doubleForKey(userLocationKey.latKey) {
+        if let user_latitude:  Double = defaults.double(forKey: userLocationKey.latKey)  {
             ulat = user_latitude
             if (ulat == 0.0) {
                 // no position routine
@@ -162,7 +162,7 @@ class ViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDeleg
                 return
             }
         } else { return }
-        if let user_longitude: Double = defaults.doubleForKey(userLocationKey.lngKey) {
+        if let user_longitude: Double = defaults.double(forKey: userLocationKey.lngKey) {
             ulng = user_longitude
             if (ulng == 0.0) {
                 // no position routine
@@ -170,13 +170,13 @@ class ViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDeleg
                 return
             }
         } else { return }
-        if let user_precision: Double = defaults.doubleForKey(userLocationKey.pcsKey) {
+        if let user_precision: Double = defaults.double(forKey: userLocationKey.pcsKey) {
             self.userPrecision = user_precision
         }
-        if let user_address: String = defaults.stringForKey(userLocationKey.adrKey) {
+        if let user_address: String = defaults.string(forKey: userLocationKey.adrKey) {
             self.userAddress = user_address
         }
-        if let user_timestamp: String = defaults.stringForKey(userLocationKey.timKey) {
+        if let user_timestamp: String = defaults.string(forKey: userLocationKey.timKey) {
             self.userTimestamp = user_timestamp
         }
         
@@ -186,10 +186,10 @@ class ViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDeleg
         // properly formatting description text
         let description = NSMutableAttributedString(string: description_string,
                                                     attributes:[NSFontAttributeName:UIFont(name: "HelveticaNeue-Light", size: 15.0)!])
-        description.addAttribute(NSForegroundColorAttributeName, value: UIColor.orangeColor(),
+        description.addAttribute(NSForegroundColorAttributeName, value: UIColor.orange,
                                  range: NSRange(location:20,length:self.userAddress.characters.count))
         // visualizing description
-        controlDescription.textAlignment = NSTextAlignment.Center
+        controlDescription.textAlignment = NSTextAlignment.center
         controlDescription.attributedText = description
         // centering map
         setLocation(ulat, lng: ulng, park: true)
@@ -197,13 +197,13 @@ class ViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDeleg
     }
     func noPositionStored() {
         print("no position")
-        controlDescription.textAlignment = NSTextAlignment.Center;
+        controlDescription.textAlignment = NSTextAlignment.center;
         controlDescription.text = "nessuna posizione salvata!"
         return
     }
 
     /* enabling position retrieval / check on location services <- when application is active */
-    func applicationBecameActive(notification: NSNotification){
+    func applicationBecameActive(_ notification: Notification){
         isUserLocation()
     }
     
@@ -211,18 +211,18 @@ class ViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDeleg
     func isUserLocation()->Bool {
         if (!CLLocationManager.locationServicesEnabled()) {
             // display a message if location services are disabled
-            let alert = UIAlertController(title: "Attenzione!", message: "I servizi di localizzazione sono disabilitati, non sarà possibile utilizzare l'applicazione. Vai in Impostazioni > Privacy > Localizzazione per abilitarli.", preferredStyle: UIAlertControllerStyle.Alert)
-            self.presentViewController(alert, animated: true, completion: nil)
+            let alert = UIAlertController(title: "Attenzione!", message: "I servizi di localizzazione sono disabilitati, non sarà possibile utilizzare l'applicazione. Vai in Impostazioni > Privacy > Localizzazione per abilitarli.", preferredStyle: UIAlertControllerStyle.alert)
+            self.present(alert, animated: true, completion: nil)
             return false
         } else {
             // dismissing alert if location services are enabled
-            self.dismissViewControllerAnimated(true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
         }
         return true
     }
     
     /* user location delegate */
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         // retrieving coordinate
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         self.userLatitude  = locValue.latitude
@@ -266,21 +266,21 @@ class ViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDeleg
             // properly formatting description text
             let description = NSMutableAttributedString(string: description_string,
                                                         attributes:[NSFontAttributeName:UIFont(name: "HelveticaNeue-Light", size: 15.0)!])
-            description.addAttribute(NSForegroundColorAttributeName, value: UIColor.orangeColor(),
+            description.addAttribute(NSForegroundColorAttributeName, value: UIColor.orange,
                                                                      range: NSRange(location:22,length:self.userAddress.characters.count))
             
             // visualizing description
-            controlDescription.textAlignment = NSTextAlignment.Center
+            controlDescription.textAlignment = NSTextAlignment.center
             controlDescription.attributedText = description
         }
     }
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError)
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
     {
         print(error)
     }
 
     /* presetting map with user location */
-    func setLocation(lat: Double, lng: Double, park: Bool = false) {
+    func setLocation(_ lat: Double, lng: Double, park: Bool = false) {
         let initialLocation = CLLocation(latitude: lat, longitude: lng)
         let regionRadius: CLLocationDistance = 100
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(initialLocation.coordinate, regionRadius * 2.0, regionRadius * 2.0)

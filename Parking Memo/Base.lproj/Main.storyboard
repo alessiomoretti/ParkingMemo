@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="UVq-lb-Irc">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2338c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UVq-lb-Irc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -31,77 +32,72 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8Jz-Ah-Z2P">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="416"/>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </mapView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SiF-XJ-GJv">
-                                <rect key="frame" x="0.0" y="550" width="600" height="50"/>
-                                <color key="backgroundColor" red="0.87367818813131315" green="0.33139955881345423" blue="0.12054419232451452" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Salva posizione">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="storePosition:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MbH-wY-whW"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="clip" numberOfLines="6" baselineAdjustment="none" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I38-vg-2MX">
-                                <rect key="frame" x="8" y="463" width="584" height="72"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="72" id="oM4-bq-A1C"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="U8i-nG-hCc">
-                                <rect key="frame" x="8" y="418" width="584" height="29"/>
                                 <segments>
                                     <segment title="Macchina"/>
                                     <segment title="Parcheggio"/>
                                 </segments>
-                                <color key="tintColor" red="0.87367818813131315" green="0.33139955881345423" blue="0.12054419232451452" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.87367818813131315" green="0.33139955881345423" blue="0.12054419232451452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="behaviourChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="1Sl-Z0-uFR"/>
                                 </connections>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y9n-Al-LCP">
-                                <rect key="frame" x="240" y="570" width="120" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="clip" numberOfLines="6" baselineAdjustment="none" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I38-vg-2MX">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="3OR-xz-5j5"/>
+                                    <constraint firstAttribute="height" constant="72" id="hcw-Rj-psU"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y9n-Al-LCP">
                                 <state key="normal" title="informazioni &gt;">
-                                    <color key="titleColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="pwQ-cr-Ie5" kind="push" identifier="navSegue" id="ppk-P8-U5K">
+                                    <segue destination="pwQ-cr-Ie5" kind="show" identifier="navSegue" id="ppk-P8-U5K">
                                         <segue key="commit" inheritsFrom="parent" id="hsO-7r-A8z"/>
                                         <segue key="preview" inheritsFrom="commit" id="fmd-wV-f5K"/>
                                     </segue>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SiF-XJ-GJv">
+                                <color key="backgroundColor" red="0.87367818813131315" green="0.33139955881345423" blue="0.12054419232451452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="iwe-fE-HeA"/>
+                                </constraints>
+                                <state key="normal" title="Salva posizione">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="storePosition:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MbH-wY-whW"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="U8i-nG-hCc" firstAttribute="leading" secondItem="I38-vg-2MX" secondAttribute="leading" id="1Lq-6h-Gad"/>
-                            <constraint firstItem="SiF-XJ-GJv" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="4Cd-t3-f4C"/>
-                            <constraint firstItem="I38-vg-2MX" firstAttribute="centerX" secondItem="SiF-XJ-GJv" secondAttribute="centerX" id="AkA-Jp-TDn"/>
-                            <constraint firstItem="U8i-nG-hCc" firstAttribute="trailing" secondItem="I38-vg-2MX" secondAttribute="trailing" id="I61-Cu-SQ1"/>
-                            <constraint firstItem="U8i-nG-hCc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-12" id="JJP-CN-RUG"/>
-                            <constraint firstAttribute="trailing" secondItem="8Jz-Ah-Z2P" secondAttribute="trailing" id="OfU-eg-Crc"/>
-                            <constraint firstItem="8Jz-Ah-Z2P" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="PWS-tX-xQe"/>
-                            <constraint firstItem="I38-vg-2MX" firstAttribute="top" secondItem="U8i-nG-hCc" secondAttribute="bottom" constant="17" id="PyY-Fv-eKC"/>
-                            <constraint firstItem="y9n-Al-LCP" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="S0N-1h-1jL"/>
-                            <constraint firstItem="8Jz-Ah-Z2P" firstAttribute="trailing" secondItem="SiF-XJ-GJv" secondAttribute="trailing" id="U4a-fW-4bn"/>
-                            <constraint firstItem="SiF-XJ-GJv" firstAttribute="top" secondItem="I38-vg-2MX" secondAttribute="bottom" constant="15" id="Wpc-zO-fwl"/>
-                            <constraint firstItem="8Jz-Ah-Z2P" firstAttribute="leading" secondItem="SiF-XJ-GJv" secondAttribute="leading" id="aSL-EY-peY"/>
-                            <constraint firstItem="U8i-nG-hCc" firstAttribute="top" secondItem="8Jz-Ah-Z2P" secondAttribute="bottom" constant="2" id="gDa-vc-Jwf"/>
-                            <constraint firstItem="SiF-XJ-GJv" firstAttribute="centerX" secondItem="y9n-Al-LCP" secondAttribute="centerX" id="jGJ-lE-mew"/>
-                            <constraint firstItem="8Jz-Ah-Z2P" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="lYc-dq-dlL"/>
-                            <constraint firstItem="y9n-Al-LCP" firstAttribute="top" secondItem="I38-vg-2MX" secondAttribute="bottom" constant="35" id="suU-7n-Mzb"/>
+                            <constraint firstItem="U8i-nG-hCc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2NU-MP-H35"/>
+                            <constraint firstItem="U8i-nG-hCc" firstAttribute="top" secondItem="8Jz-Ah-Z2P" secondAttribute="bottom" constant="2" id="2Z1-wG-M6Y"/>
+                            <constraint firstAttribute="trailing" secondItem="SiF-XJ-GJv" secondAttribute="trailing" id="DVP-We-ZGI"/>
+                            <constraint firstItem="8Jz-Ah-Z2P" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Fb1-gQ-RKL"/>
+                            <constraint firstItem="y9n-Al-LCP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GUK-Mr-FPJ"/>
+                            <constraint firstItem="I38-vg-2MX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="IpX-Br-iOV"/>
+                            <constraint firstAttribute="trailing" secondItem="U8i-nG-hCc" secondAttribute="trailing" id="RlQ-7Q-B0s"/>
+                            <constraint firstAttribute="trailing" secondItem="8Jz-Ah-Z2P" secondAttribute="trailing" id="U3H-JR-mhL"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="y9n-Al-LCP" secondAttribute="bottom" constant="8" id="bpz-wa-J9c"/>
+                            <constraint firstAttribute="trailing" secondItem="I38-vg-2MX" secondAttribute="trailing" id="e6U-MI-gsC"/>
+                            <constraint firstItem="U8i-nG-hCc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="edb-ks-xp9"/>
+                            <constraint firstItem="8Jz-Ah-Z2P" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="k5a-cU-pdw"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="I38-vg-2MX" secondAttribute="bottom" constant="125" id="nPj-DQ-h4q"/>
+                            <constraint firstItem="SiF-XJ-GJv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="wF6-KW-z7W"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="SiF-XJ-GJv" secondAttribute="bottom" id="wmY-7e-CBW"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="U8i-nG-hCc" secondAttribute="bottom" constant="221" id="yaM-5p-WD8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kiF-ja-Y5X"/>
@@ -115,7 +111,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="280" y="349"/>
+            <point key="canvasLocation" x="279.19999999999999" y="348.57571214392806"/>
         </scene>
         <!--Developer-->
         <scene sceneID="Gl8-09-7CF">
@@ -126,26 +122,24 @@
                         <viewControllerLayoutGuide type="bottom" id="k2J-tQ-KqR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bN0-2H-atD">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-white" translatesAutoresizingMaskIntoConstraints="NO" id="yxJ-iX-V27">
-                                <rect key="frame" x="254" y="195" width="92" height="105"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="92" id="6GL-aM-RLW"/>
                                     <constraint firstAttribute="height" constant="105" id="iY0-d7-137"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="17" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfZ-e3-bbf">
-                                <rect key="frame" x="20" y="360" width="560" height="190"/>
                                 <string key="text">Parking Memo è un'applicazione sviluppata da OutsiderTech per tenere traccia della posizione in cui hai parcheggiato la tua macchina. Utilizza il sistema di geolocalizzazione del tuo iPhone, questo potrebbe incidere sulla durata della batteria. Il logo è una creazione di Stefano Buttarelli.</string>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
-                                <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="WfZ-e3-bbf" firstAttribute="centerX" secondItem="yxJ-iX-V27" secondAttribute="centerX" id="84R-iO-CVa"/>
                             <constraint firstItem="yxJ-iX-V27" firstAttribute="centerX" secondItem="bN0-2H-atD" secondAttribute="centerX" id="JtV-3b-foR"/>
@@ -165,10 +159,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo-white" width="450" height="639"/>
+        <image name="logo-white" width="225" height="319"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ppk-P8-U5K"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

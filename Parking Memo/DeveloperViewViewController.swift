@@ -15,6 +15,6 @@ class DeveloperViewViewController: UIViewController {
 
         // no title needed
         self.navigationItem.title = ""
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationController?.navigationBar.tintColor = UIColor.white
     }
 }
